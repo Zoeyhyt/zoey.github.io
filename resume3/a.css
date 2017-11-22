@@ -1,0 +1,290 @@
+body{
+    background: #efefef;
+    margin: 0;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+hr{
+    height: 0;
+    border: none;
+    border-top: 1px solid #dedede;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+/*上面不要看*/
+.topNavBar{
+    font-weight: bold;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+ul,ol{
+    list-style: none;
+}
+.topNavBar-inner{
+    padding: 0 16px;
+}
+.topNavBar .logo{
+    font-family:  "Hiragino Kaku Gothic Std";
+    font-size: 22px;
+    padding-top: 1px;
+}
+.topNavBar .logo .rs{
+    color: rgb(232,103,107);
+    margin-right: 4px;
+}
+.topNavBar .logo .card{
+    color: rgb(154,157,162);
+}
+.topNavBar nav{
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.topNavBar nav a{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+.topNavBar nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.topNavBar nav ul>li{
+    float: left;
+    margin: 0 17px;
+}
+.topNavBar nav ul>li>a{
+    border-bottom: 3px solid transparent;
+}
+.topNavBar nav ul>li>a:hover{
+    border-bottom-color: #DC6465;
+}
+.banner{
+    height: 515px;
+    background-image: url(./img/rs-cover.jpg);
+    background-position: center center;
+    block-size: cover;
+}
+.banner .mask{
+    height: 515px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.userCard{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    margin-top: -360px;
+    box-shadow: 1px -1px 26px -6px rgba(0,0,0,0.58);
+}
+.userCard .welcome{
+    background-color: #E6686A;
+    color: white;
+    display: inline-block;
+    padding: 4px 15px;
+    line-height: 21px;
+    position: relative;
+}
+.userCard .welcome .triangle{
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #E6686A;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+.userCard .picture{
+    float: left;
+}
+.userCard .text{
+    float: right;
+    margin-left: 65px;
+    width:400px;
+}
+.userCard .pictureAndText{
+    padding: 50px;
+}
+.userCard .text h1{
+    margin-top: 18px;
+}
+.userCard .text hr{
+    margin: 20px 0;
+}
+.userCard dl dt,
+.userCard dl dd{
+    float: left;
+    padding: 5px 0;
+    font-weight: bold;
+}
+.userCard dl dt{
+    width:30%;
+}
+.userCard dl dd{
+    width:60%;
+    color: #9da0a7;
+}
+.userCard >footer.media{
+    background: #E6686A;
+    text-align: center;
+}
+.userCard >footer.media >a{
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    margin: 10px 0;
+}
+.userCard svg{
+    width: 30px;
+    height: 30px;
+    fill: white;
+    vertical-align: top;
+}
+.userCard >footer.media >a:hover{
+    background: #CF5D5F;
+}
+body >main .downloadResume-wrapper{
+    text-align: center;
+}
+body >main .downloadResume{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    border: 1px solid #cdcfd1;
+    background: #efefef;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 21px 0;
+}
+body >main .downloadResume:hover{
+    transition: box-shadow 0.4s;
+    box-shadow: 5px 5px 17px -3px rgba(0,0,0,0.53);
+}
+.selfIntroduction{
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+section.skills,
+section.portfolio{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+section.skills >h2,
+section.portfolio >h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+section.skills >ol{
+    background: white;
+    box-shadow: 1px -1px 26px -6px rgba(0,0,0,0.58);
+    padding: 42px 50px 15px;
+    margin-top: 30px;
+}
+section.skills >ol >li{
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+}
+section.skills >ol >li:nth-child(even){
+    float: right;
+}
+section.skills >h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+section.skills .progressBar{
+    height: 5px;
+    background: #FAE1E1;
+    border-radius: 4px;
+    margin: 4px 0 40px;
+}
+section.skills .progressBar >.progress{
+    height: 100%;
+    background:#E6686A;
+    width: 70%;
+    border-radius: 4px;
+}
+section.portfolio{
+    text-align: center;
+    margin-bottom: 30px;
+}
+section.portfolio >nav{
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+section.portfolio >nav >ol{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30px;
+}
+section.portfolio >nav >ol >li{
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+}
+section.portfolio >nav >ol >li:nth-child(1){
+    margin-left: 0;
+}
+section.portfolio >nav .bar{
+    background:white;
+    height: 5px; 
+    margin-top: 5px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+section.portfolio >nav .bar-inner{
+    height: 100%;
+    background: #E6686A;
+    width: 10%;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+section.portfolio >nav .bar.state-1 .bar-inner{
+    margin-left: 0;
+    width: 28px;
+}
+section.portfolio >nav .bar.state-2 .bar-inner{
+    margin-left: 49px;
+    width: 121px;
+}
+section.portfolio >nav .bar.state-3 .bar-inner{
+    margin-left: 192px;
+    width: 86px;
+}
+section.portfolio .works{
+    position: relative;
+}
+section.portfolio .works >.big,
+section.portfolio .works >.small{
+    position: absolute;
+}
+
