@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Navigation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header></header>
+    <main style="text-align:center;">
+        <div class="wrapper" id="main"></div>
+    </main>
+    <footer></footer>
+    <script>
+        var keys = {
+            0:['q','w','e','r','t','y','u','i','o','p'],
+            1:['a','s','d','f','g','h','j','k','l'],
+            2:['z','x','c','v','b','n','m'],
+            'length': 3
+        }
+        var hash = {
+            'q':'qq.com',
+            'w':'weibo.com',
+            'e':'ele.me',
+            'r':'renren.com',
+            't':'tianyan.com',
+            'y':'youtube.com',
+            'u':'uc.com',
+            'i':'iqiyi.com',
+            'o':'opera.com',
+            'p':undefined,
+            'a':'acfun.tv',
+            's':'sohu.com',
+            'z':'zhihu.com',
+            'm':'www.mcdounalds.com.cn'
+        }
+        var hashInLocalStorage = JSON.parse(localStorage.getItem('zzz')||'null')
+        if(hashInLocalStorage){
+            hash = hashInLocalStorage
+        }
+        
+        index = 0
+        while(index<keys.length){
+            divXXX = document.createElement('div')
+            main.appendChild(divXXX)
+            row = keys[index]
+            index2 = 0
+            while(index2<row['length']){
+                kbdXXX = document.createElement('kbd')
+                kbdXXX.textContent = row[index2]
+                buttonX = document.createElement('button')
+                buttonX.textContent = 'Edit'
+                buttonX.id = row[index2]
+                buttonX.onclick = function(xhsb){
+                    key = xhsb['target']['id']
+                    web = prompt('Give me a website')
+                    hash[key] = web
+                    localStorage.setItem('zzz',JSON.stringify(hash))
+                }
+                kbdXXX.appendChild(buttonX)
+                divXXX.appendChild(kbdXXX)
+                index2 =index2 + 1 
+            }
+            index = index + 1
+        }
+        document.onkeypress = function(sdlf){
+            key = sdlf['key']
+            website = hash[key]
+            //location.href = 'http://'+ website
+            window.open('http://'+website,'_blank')
+        }
+
+    </script>
+</body>
+</html>
