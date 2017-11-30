@@ -117,7 +117,7 @@
                 var key = button2['id']
                 var web = prompt('Give me a website')
                 hash[key] = web
-                img2.src = 'http://'+ web + '/favicon.ico'
+                img2.src = '//'+ web + '/favicon.ico'
                 img.onerror = function(xxx){
                 xxx.target.src = '//ooo.0o0.ooo/2017/11/29/5a1eb8bd55b17.png'
                 }
@@ -128,7 +128,7 @@
         function createImg(domain){
             var img = tag('img')
             if(domain){
-                img.src = 'http://'+ domain + '/favicon.ico'  
+                img.src = '//'+ domain + '/favicon.ico'  
             }
             else{
                 img.src = '//ooo.0o0.ooo/2017/11/29/5a1eb8bd55b17.png'
