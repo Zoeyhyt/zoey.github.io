@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Navigation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header></header>
+    <main style="text-align:center;">
+        <div class="wrapper" id="main"></div>
+    </main>
+    <footer></footer>
+    <script>
+        //1.初始化数据
+        var hashA = init()
+        var keys = hashA['keys']
+        var hash = hashA['hash']
+        
+        //2.生成键盘
+        generateKeyboard(keys,hash)
+
+        //3.监听用户
+        listenToUser(hash)
+
+        //下面是函数
+        function init(){
+            var keys = {
+            0:['q','w','e','r','t','y','u','i','o','p'],
+            1:['a','s','d','f','g','h','j','k','l'],
+            2:['z','x','c','v','b','n','m'],
+            'length': 3
+            }
+            var hash = {
+            'q':'qq.com',
+            'w':'weibo.com',
+            'e':'ele.me',
+            'r':'renren.com',
+            't':'tmall.com',
+            'y':'youtube.com',
+            'u':'uc.cn',
+            'i':'iqiyi.com',
+            'o':'opera.com',
+            'p':undefined,
+            'a':'acfun.tv',
+            's':'sohu.com',
+            'z':'zhihu.com',
+            'm':'mcdonalds.com'
+            }
+            var hashInLocalStorage = getFromLocalStorage('zzz')
+            if(hashInLocalStorage){
+                hash = hashInLocalStorage
+            }
+            return{
+                keys:keys,
+                hash:hash
+
+            }
+        }
+        function generateKeyboard(keys,hash){
+            for(var index=0;index<keys.length;index=index+1){
+                var div = tag('div')
+                div.className = 'row'
+
+                main.appendChild(div)
+
+                var row = keys[index]
+                for(var index2=0;index2<row['length'];index2=index2+1){
+                    var span = createSpan(row[index2])
+
+                    var button = createButton(row[index2])
+                
+                    var img = createImg(hash[row[index2]])
+
+                    var kbd = tag('kbd')              
+                    kbd.className = 'key'
+
+                    kbd.appendChild(span)
+                    kbd.appendChild(img)
+                    kbd.appendChild(button)
+
+                    div.appendChild(kbd)
+                }
+            } 
+        }
+
+        function listenToUser(hash){
+            document.onkeypress = function(sdlf){
+            var key = sdlf['key']
+            var website = hash[key]
+            //location.href = 'http://'+ website
+            window.open('http://'+website,'_blank')
+            }
+        }
+
+        function getFromLocalStorage(name) {
+            return JSON.parse(localStorage.getItem(name)||'null')
+        }
+        function tag(tagName){
+            return document.createElement(tagName)
+        }
+        function createSpan(textContent){
+            var span = tag('span')
+            span.className = 'text'
+            span.textContent = textContent
+            return span 
+        }
+        function createButton(id){
+            var button = tag('button')
+            button.textContent = 'Edit'
+            button.id = id
+            button.onclick = function(xhsb){
+                var button2 = xhsb['target']
+                var img2 = button2.previousSibling
+                var key = button2['id']
+                var web = prompt('Give me a website')
+                hash[key] = web
+                img2.src = 'http://'+ web + '/favicon.ico'
+                img.onerror = function(xxx){
+                xxx.target.src = '//ooo.0o0.ooo/2017/11/29/5a1eb8bd55b17.png'
+                }
+                localStorage.setItem('zzz',JSON.stringify(hash))
+            }
+            return button  
+        }
+        function createImg(domain){
+            var img = tag('img')
+            if(domain){
+                img.src = 'http://'+ domain + '/favicon.ico'  
+            }
+            else{
+                img.src = '//ooo.0o0.ooo/2017/11/29/5a1eb8bd55b17.png'
+            }
+            img.onerror = function(xxx){
+                xxx.target.src = '//ooo.0o0.ooo/2017/11/29/5a1eb8bd55b17.png'
+            }
+            return img
+        }
+
+    </script>
+</body>
+</html>
