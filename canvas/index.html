@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
     
-    <head>
-        <meta charset="utf-8">
-        <title>我的画板</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Palette</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
 
-    <body>
-        <canvas id="xxx" width=300 height=300></canvas>
-        <div id="actions" class="actions">
-            <button id=eraser>橡皮擦</button>
-            <button id=brush>画笔</button>
-        </div>
-        <script src="./main.js"></script>
-    </body>
+<body>
+    <canvas id="xxx" width=300 height=300></canvas>
+    <div id="actions" class="actions">
+        <svg id="pen" class="icon active" aria-hidden="true">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id="eraser" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-erase"></use>
+        </svg>
+        <svg id="clear" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-delete"></use>
+        </svg>
+        <svg id="download" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-download"></use>
+        </svg>
+    </div>
+    <ol class="colors">
+        <li id='red' class="red"></li>
+        <li id='green' class="green"></li>
+        <li id='blue' class="blue"></li>
+    </ol>
+    <ol class="sizes">
+        <li id="size1" class="size1"></li>
+        <li id="size2" class="size2"></li>
+        <li id="size3" class="size3"></li>
+    </ol>
+    <script src="./main.js"></script>
+    <script src="//at.alicdn.com/t/font_481286_nig9h193lx9wwmi.js"></script>
+</body>
 
 </html>
