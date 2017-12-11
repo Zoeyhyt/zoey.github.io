@@ -12,9 +12,54 @@
                fill: currentColor;
                overflow: hidden;
             }
+            .site-welcome{
+                display: none;
+                position: fixed;
+                top: 0;left: 0; width: 100%;height: 100%;
+                background: #888;
+                z-index: 1;
+                justify-content: center;
+                align-items: center;
+            }
+            .site-welcome.active{
+                display: flex;
+            }
+            .loading{
+                width: 200px;
+                height: 200px;
+                position:relative;
+            }
+            .loading::before,.loading::after{
+                content:'';
+                background:black;
+                width:0;
+                height:0;
+                border-radius:50%;
+                position:absolute;
+                top:0;
+                left:0;
+                bottom:0;
+                right:0;
+                margin:auto;
+                animation:s 1.5s linear infinite;
+            }
+            .loading::after{
+                animation-delay:0.75s; 
+            }
+            @keyframes s{
+                0%{
+                width:0;height:0;opacity:1;
+                }
+                100%{
+                width:100px;height:100px;opacity:0;
+                }
+            }
         </style>
     </head>
     <body>
+        <div id="siteWelcome" class="site-welcome active">
+            <div class="loading"></div>
+        </div>
         <div class="topNavBar">
             <div class="topNavBar-inner clearfix"> 
                 <a class="logo" href="#" alt="logo" style="float:left;">
@@ -185,5 +230,10 @@
                 </div>
             </div>               
         </section>
+        <script>
+            setTimeout (function(){
+                siteWelcome.classList.remove('active')
+            }, 3000);   
+        </script>
     </body>
 </html>
