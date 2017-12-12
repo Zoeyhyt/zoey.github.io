@@ -68,9 +68,25 @@
                 <nav style="float:right;">
                     <ul class="clearfix">
                         <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">SKILLS</a></li>
-                        <li><a href="#">EXPERIMENT</a></li>
-                        <li><a href="#">BLOG</a></li>
+                        <li><a class="menuTrigger" href="#">SKILLS</a>
+                        <ul class="subMenu">
+                            <li>Portfolio</li>
+                        </ul>
+                        </li>
+                        <li><a class="menuTrigger" href="#">EXPERIMENT</a>
+                            <ul class="subMenu">
+                                <li>Education</li>
+                                <li>Cliens</li>
+                                <li>References</li>
+                            </ul>
+                        </li>
+                        <li><a class="menuTrigger" href="#">BLOG</a>
+                        <ul class="subMenu">
+                            <li>Blog1</li>
+                            <li>Blog2</li>
+                            <li>Blog3</li>
+                        </ul>
+                        </li>
                         <li><a href="#">CALENDAR</a></li>
                         <li><a href="#">CONTACT</a></li>
                         <li><a href="#">OTHER</a></li>
@@ -242,6 +258,25 @@
                     topNavBar.classList.remove('sticky')
                 }
             }   
+            let aTags = document.getElementsByClassName('menuTrigger')
+            for(let i=0;i<aTags.length;i++){
+                aTags[i].onmouseenter=function(x){
+                    let a = x.currentTarget
+                    let brother = a.nextSibling
+                    while(brother.tagName !== 'UL'){
+                        brother = brother.nextSibling
+                    }
+                    brother.classList.add('active')
+                }
+                aTags[i].onmouseleave=function(x){
+                        let a = x.currentTarget
+                        let brother = a.nextSibling
+                        while(brother.tagName !== 'UL'){
+                            brother = brother.nextSibling
+                        }
+                    brother.classList.remove('active')
+                }
+            }    
         </script>
     </body>
 </html>

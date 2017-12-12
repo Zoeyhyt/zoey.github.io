@@ -17,9 +17,24 @@ ul,ol{list-style: none;}
 .topNavBar nav{font-size: 13px;padding-top: 8px;padding-bottom: 8px;}
 .topNavBar nav a{color: rgba(255, 255, 255, 0.7);text-decoration: none;}
 .topNavBar nav ul{list-style: none;padding: 0;margin: 0;}
-.topNavBar nav ul>li{float: left;margin: 0 17px;}
-.topNavBar nav ul>li>a{border-bottom: 3px solid transparent;color: inherit;}
-.topNavBar nav ul>li>a:hover{border-bottom-color: #DC6465;}
+.topNavBar nav ul>li{float: left;margin: 0 17px;position: relative;}
+.topNavBar nav ul>li>a{border-bottom: 3px solid transparent;color: inherit;position: relative;}
+.topNavBar nav ul>li>a:hover::after{content: '';display: block;position: absolute;top:100%;left: 0;
+    width: 100%;background: #DC6465;height: 3px;animation: menuSlide 0.3s;}
+@keyframes menuSlide{
+    0%{width: 0;}
+    100%{width: 100%;}
+}
+.topNavBar .subMenu{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+.topNavBar .subMenu.active{
+    display: block;
+    white-space: nowrap;
+}
 
 .banner{height: 515px;background-image: url(./img/rs-cover.jpg);background-position: center center;block-size: cover;}
 .banner .mask{height: 515px;background-color: rgba(0, 0, 0, 0.7);}
