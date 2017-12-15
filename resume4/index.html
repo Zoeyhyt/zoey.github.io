@@ -75,22 +75,22 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#siteExperience">EXPERIMENT</a>
+                            <a href="#siteWorks">Works</a>
                             <ul class="submenu">
-                                <li>Education</li>
-                                <li>Cliens</li>
-                                <li>References</li>
+                                <li>work1</li>
+                                <li>work2</li>
+                                <li>work3</li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">BLOG</a>
+                            <a href="#siteBlog">BLOG</a>
                             <ul class="submenu">
                                 <li>Blog1</li>
                                 <li>Blog2</li>
                                 <li>Blog3</li>
                             </ul>
                         </li>
-                        <li><a href="#">CALENDAR</a></li>
+                        <li><a href="#calendar">CALENDAR</a></li>
                         <li><a href="#">CONTACT</a></li>
                         <li><a href="#">OTHER</a></li>
                     </ul>
@@ -273,11 +273,12 @@
             let aTags = document.querySelectorAll('nav.menu > ul >li >a')  
             for(let i=0;i<aTags.length;i++){
                 aTags[i].onclick = function(x){
-                    x.preverDault()
+                    x.preventDefault()
                     let a = x.currentTarget
-                    let href = a.getAttrubite('href')
+                    let href = a.getAttribute('href')
                     let element = document.querySelector(href)
-                    window.scroll(0,top - 80)
+                    let top = element.offsetTop
+                    window.scrollTo(0,top - 80)
                 }
             }
         </script>

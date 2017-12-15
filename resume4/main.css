@@ -18,7 +18,7 @@ ul,ol{list-style: none;}
 .topNavBar nav > ul{list-style: none;padding: 0;margin: 0;}
 .topNavBar nav > ul > li{float: left;margin: 0 17px;position: relative;}
 .topNavBar nav > ul > li > a{font-size: 12px; font-weight: bold; border-top: 3px solid transparent;padding: 5px 0;  border-bottom: 3px solid transparent;color: inherit;position: relative;}
-.topNavBar nav > ul > li.active > a::after{content: '';display: block;position: absolute;top:100%;left: 0;width: 100%;background: #e06567;height: 3px;animation: menuSlide 0.3s;}
+.topNavBar nav > ul > li.active > a::after{content: '';display: block;position: relative;top:100%;left: 0;width: 100%;background: #e06567;height: 3px;animation: menuSlide 0.3s;}
 @keyframes menuSlide{
     0%{width: 0;}
     100%{width: 100%;}
