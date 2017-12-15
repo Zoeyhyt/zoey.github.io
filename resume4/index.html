@@ -65,27 +65,30 @@
                 <a class="logo" href="#" alt="logo" style="float:left;">
                     <span class="rs">RS</span><span class="card">card</span>
                 </a>
-                <nav style="float:right;">
+                <nav class="menu" style="float:right;">
                     <ul class="clearfix">
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a class="menuTrigger" href="#">SKILLS</a>
-                        <ul class="subMenu">
-                            <li>Portfolio</li>
-                        </ul>
+                        <li><a href="#siteAbout">ABOUT</a></li>
+                        <li>
+                            <a href="#siteSkills">SKILLS</a>
+                            <ul class="submenu">
+                                <li>Portfolio</li>
+                            </ul>
                         </li>
-                        <li><a class="menuTrigger" href="#">EXPERIMENT</a>
-                            <ul class="subMenu">
+                        <li>
+                            <a href="#siteExperience">EXPERIMENT</a>
+                            <ul class="submenu">
                                 <li>Education</li>
                                 <li>Cliens</li>
                                 <li>References</li>
                             </ul>
                         </li>
-                        <li><a class="menuTrigger" href="#">BLOG</a>
-                        <ul class="subMenu">
-                            <li>Blog1</li>
-                            <li>Blog2</li>
-                            <li>Blog3</li>
-                        </ul>
+                        <li>
+                            <a href="#">BLOG</a>
+                            <ul class="submenu">
+                                <li>Blog1</li>
+                                <li>Blog2</li>
+                                <li>Blog3</li>
+                            </ul>
                         </li>
                         <li><a href="#">CALENDAR</a></li>
                         <li><a href="#">CONTACT</a></li>
@@ -98,7 +101,7 @@
             <div class="mask"></div>
         </div>
         <main>
-            <div class="userCard">
+            <div class="userCard" id="siteAbout">
                 <div class="pictureAndText clearfix">
                     <div class="picture">
                         <img src="./img/avatar.jpg" alt="头像">
@@ -154,7 +157,7 @@
                 Professional Skills：HTML CSS Node.js
             </p>
         </main>
-        <section class="skills">
+        <section class="skills" id="siteSkills">
             <h2>Professional Skills</h2>
             <ol class="clearfix">
                 <li>
@@ -207,7 +210,7 @@
                 </li>
             </ol>
         </section>
-        <section class="portfolio">
+        <section class="portfolio" id="siteWorks">
             <h2>Portfolio</h2>
             <nav>
                 <ol class="clearfix">
@@ -258,25 +261,25 @@
                     topNavBar.classList.remove('sticky')
                 }
             }   
-            let aTags = document.getElementsByClassName('menuTrigger')
+            let liTags = document.querySelectorAll('nav.menu > ul > li')
+            for(let i=0;i<liTags.length;i++){
+                liTags[i].onmouseenter=function(x){
+                     x.currentTarget.classList.add('active')
+                }
+                liTags[i].onmouseleave=function(x){
+                     x.currentTarget.classList.remove('active')
+                }
+            }  
+            let aTags = document.querySelectorAll('nav.menu > ul >li >a')  
             for(let i=0;i<aTags.length;i++){
-                aTags[i].onmouseenter=function(x){
+                aTags[i].onclick = function(x){
+                    x.preverDault()
                     let a = x.currentTarget
-                    let brother = a.nextSibling
-                    while(brother.tagName !== 'UL'){
-                        brother = brother.nextSibling
-                    }
-                    brother.classList.add('active')
+                    let href = a.getAttrubite('href')
+                    let element = document.querySelector(href)
+                    window.scroll(0,top - 80)
                 }
-                aTags[i].onmouseleave=function(x){
-                        let a = x.currentTarget
-                        let brother = a.nextSibling
-                        while(brother.tagName !== 'UL'){
-                            brother = brother.nextSibling
-                        }
-                    brother.classList.remove('active')
-                }
-            }    
+            }
         </script>
     </body>
 </html>
