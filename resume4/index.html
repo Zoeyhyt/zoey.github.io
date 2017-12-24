@@ -6,7 +6,7 @@
         <script src="//at.alicdn.com/t/font_481286_owc7kgr64vd9529.js"></script>
         <script src="//at.alicdn.com/t/font_481299_8tnpp1ib5sbawcdi.js"></script>
         <style type="text/css">
-            .icon {
+            .icon{
                width: 1em; height: 1em;
                vertical-align: -0.15em;
                fill: currentColor;
@@ -101,7 +101,7 @@
             <div class="mask"></div>
         </div>
         <main>
-            <div class="userCard" id="siteAbout">
+            <div data-x class="userCard" id="siteAbout">
                 <div class="pictureAndText clearfix">
                     <div class="picture">
                         <img src="./img/avatar.jpg" alt="头像">
@@ -119,7 +119,7 @@
                             <dt>City</dt>
                             <dd>Nanning</dd>
                             <dt>Email</dt>
-                            <dd>ecohhyt@sohu.com</dd>
+                            <dd>echohyt@sohu.com</dd>
                             <dt>Phone</dt>
                             <dd>18012345678</dd>
                         </dl>
@@ -157,7 +157,7 @@
                 Professional Skills：HTML CSS Node.js
             </p>
         </main>
-        <section class="skills" id="siteSkills">
+        <section data-x class="skills" id="siteSkills">
             <h2>Professional Skills</h2>
             <ol class="clearfix">
                 <li>
@@ -210,7 +210,7 @@
                 </li>
             </ol>
         </section>
-        <section class="portfolio" id="siteWorks">
+        <section data-x class="portfolio" id="siteWorks">
             <h2>Portfolio</h2>
             <nav>
                 <ol class="clearfix">
@@ -248,7 +248,8 @@
                     <img src="./img/computer.jpg" alt="sample3">
                 </div>
             </div>               
-        </section>
+        </section>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>    
         <script>
             setTimeout (function(){
                 siteWelcome.classList.remove('active')
@@ -260,7 +261,9 @@
                 }else{
                     topNavBar.classList.remove('sticky')
                 }
-            }   
+            } 
+
+
             let liTags = document.querySelectorAll('nav.menu > ul > li')
             for(let i=0;i<liTags.length;i++){
                 liTags[i].onmouseenter=function(x){
@@ -271,6 +274,12 @@
                 }
             }  
             let aTags = document.querySelectorAll('nav.menu > ul >li >a')  
+            function animate(time) {
+                requestAnimationFrame(animate);
+                TWEEN.update(time);
+            }
+            requestAnimationFrame(animate);
+
             for(let i=0;i<aTags.length;i++){
                 aTags[i].onclick = function(x){
                     x.preventDefault()
@@ -278,7 +287,20 @@
                     let href = a.getAttribute('href')
                     let element = document.querySelector(href)
                     let top = element.offsetTop
-                    window.scrollTo(0,top - 80)
+
+                    let currentTop = window.scrollY
+                    let targetTop = top - 80
+                    let s = targetTop - currentTop
+                    var coords = {y:currentTop};
+                    var t = Math.abs((s/100)*300);
+                    if(t>500){t = 500}
+                    var tween = new TWEEN.Tween(coords)
+                        .to({y:targetTop},t)
+                        .easing(TWEEN.Easing.Quadratic.InOut)
+                        .onUpdate(function(){
+                           window.scrollTo(0,coords.y) 
+                        })
+                        .start();
                 }
             }
         </script>
