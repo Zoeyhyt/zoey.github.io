@@ -1,0 +1,31 @@
+<title>首页</title>
+<link rel = "stylesheet" href = "./style.css">
+<h5>您的账户余额是<span id="amount">&&&amount&&&</span></h5>
+<button id="button">付款</button>
+<script>
+    button.addEventListener('click',(e) =>{
+	let script = document.createElement('script')
+	let functionName = 'frank' + parseInt(Math.random()*10000,10)
+	window[functionName] = function(result){
+	    if(result === 'success'){
+		amount.innerText = amount.innerText -1
+	    }else{
+	    
+	    }
+	}
+
+
+	script.src = 'http://jack.com:8002/pay?callback=' + functionName
+	document.body.appendChild(script)
+	script.onload = function(e){
+    	    e.currentTarget.remove()
+	    delete window[functionName]
+	}
+	script.onerror = function(e){
+	    alert('fail')
+	    e.currentTarget.remove()
+            delete window[functionName]
+	}
+    })
+</script>
+
