@@ -1,4 +1,13 @@
-window.jQuery.ajax = function(options){
+window.jQuery = function(nodeOrSelector){
+    let nodes = {}
+    nodes.addClass = function(){}
+    nodes.html = function(){}
+    return nodes
+  }
+  window.$ = window.jQuery
+ 
+ 
+ window.jQuery.ajax = function(options){
     let url = options.url
     let method = options.method
     let body = options.body
@@ -7,10 +16,10 @@ window.jQuery.ajax = function(options){
     let headers = options.headers
 
     let request = new XMLHttpRequest()
-    request.open(method,url)
+    request.open(method,url)  
     for(let key in headers){
         let value = headers[key]
-        request.setRequestHeader = (key,value)
+        request.setRequestHeader(key,value)
     }
     request.onreadystatechange = function(){
         if(request.readyState === 4){
@@ -34,8 +43,8 @@ myButton.addEventListener('click', (e) =>{
             'frank':'18'
         },
         body:'wish you a good day !',
-        success = (e) =>{console.log(e)},  //传入的函数如果不知一个，则可依次列出并传参
-        fail = (e) =>{console.log(e)}
+        success: (x) =>{console.log(x)},  //传入的函数如果不止一个，则可依次列出并传参
+        fail: (x) =>{console.log(x)}
     })   
 })
 
