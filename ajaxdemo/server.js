@@ -29,6 +29,12 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.write(string)
     response.end()
+  }else if(path === '/aa.js'){
+    let string = fs.readFileSync('./aa.js','utf8')
+    response.statusCode = 200
+    response.setHeader('Content-Type', 'text/html;charset=utf-8')
+    response.write(string)
+    response.end()
   }else if(path === '/xxx'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/xml')
