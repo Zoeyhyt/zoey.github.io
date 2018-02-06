@@ -88,7 +88,7 @@ body >main .downloadResume:hover{transition: box-shadow 0.4s;box-shadow: 5px 5px
 .selfIntroduction{text-align: center;max-width: 900px;margin-left: auto;margin-right: auto;}
 
 section.skills,
-section.portfolio{max-width: 940px;margin-left: auto;margin-right: auto;margin-top: 60px;}
+section.portfolio{max-width:940px;margin-left: auto;margin-right: auto;margin-top: 60px;}
 section.skills >h2,
 section.portfolio >h2{text-align: center;color: #3d4451;font-size: 34px;line-height: 1.2;font-weight: 600;}
 section.skills >ol{background: white;box-shadow: 1px -1px 26px -6px rgba(0,0,0,0.58);padding: 42px 50px 15px;margin-top: 30px;}
@@ -112,7 +112,22 @@ section.portfolio >nav .bar-inner{height: 100%;background: #E6686A;width: 10%;bo
 section.portfolio >nav .bar.state-1 .bar-inner{margin-left: 0;width: 28px;}
 section.portfolio >nav .bar.state-2 .bar-inner{margin-left: 49px;width: 121px;}
 section.portfolio >nav .bar.state-3 .bar-inner{margin-left: 192px;width: 86px;}
-section.portfolio .works{position: relative;}
-section.portfolio .works >.big,
-section.portfolio .works >.small{position: absolute;}
+
+.swiper-container {
+    width: 800px;
+    height: 600px;
+}
+.swiper-button-prev,
+.swiper-button-next {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    right:100%;
+    left:auto;
+    top:58%;
+}
+.swiper-button-next {
+    left: 100%;
+    right: auto;
+}
 
