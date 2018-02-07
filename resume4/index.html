@@ -181,82 +181,38 @@
                     <div class="bar-inner"></div>
                 </div>  
             </nav>
-            <script>
-                portfolio1.onclick=function(){
-                    portfolioBar.className="bar state-1";
-                }
-            </script>
-            <script>
-                portfolio2.onclick=function(){
-                    portfolioBar.className="bar state-2";
-                }
-            </script>
-            <script>
-                portfolio3.onclick=function(){
-                    portfolioBar.className="bar state-3";
-                }
-            </script>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <img class="swiper-slide" src="./img/nav-demo.png">
-                    <img class="swiper-slide" src="./img/canvas.jpg">
-                    <img class="swiper-slide" src="./img/Apple-slides.png">
+            <div id="mySlides">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <img class="swiper-slide" src="./img/nav-demo.png">
+                        <img class="swiper-slide" src="./img/canvas.jpg">
+                        <img class="swiper-slide" src="./img/Apple-slides.png">
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
                 </div>
-                <!-- 如果需要分页器 -->
-                <div class="swiper-pagination"></div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>             
-        </section>  
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>                        
+        </section>         
         <script>
-            let specialTags = document.querySelectorAll('[data-x]')
-            for(let i =0;i<specialTags.length; i++){
-                specialTags[i].classList.add('offset')
+            portfolio1.onclick=function(){
+                portfolioBar.className="bar state-1";
             }
 
-            let liTags = document.querySelectorAll('nav.menu > ul > li')
-            for(let i=0;i<liTags.length;i++){
-                liTags[i].onmouseenter=function(x){
-                     x.currentTarget.classList.add('active')
-                }
-                liTags[i].onmouseleave=function(x){
-                     x.currentTarget.classList.remove('active')
-                }
-            }  
-            let aTags = document.querySelectorAll('nav.menu > ul >li >a')  
-            function animate(time) {
-                requestAnimationFrame(animate);
-                TWEEN.update(time);
+            portfolio2.onclick=function(){
+                portfolioBar.className="bar state-2";
             }
-            requestAnimationFrame(animate);
 
-            for(let i=0;i<aTags.length;i++){
-                aTags[i].onclick = function(x){
-                    x.preventDefault()
-                    let a = x.currentTarget
-                    let href = a.getAttribute('href')
-                    let element = document.querySelector(href)
-                    let top = element.offsetTop
-
-                    let currentTop = window.scrollY
-                    let targetTop = top - 80
-                    let s = targetTop - currentTop
-                    var coords = {y:currentTop};
-                    var t = Math.abs((s/100)*300);
-                    if(t>500){t = 500}
-                    var tween = new TWEEN.Tween(coords)
-                        .to({y:targetTop},t)
-                        .easing(TWEEN.Easing.Quadratic.InOut)
-                        .onUpdate(function(){
-                           window.scrollTo(0,coords.y) 
-                        })
-                        .start();
-                }
+            portfolio3.onclick=function(){
+                portfolioBar.className="bar state-3";
             }
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
         <script src="./js/swiper.js"></script>
         <script src="./js/sticky.js"></script>
+        <script src="./js/auto-slide-up.js"></script>
+        <script src="./js/smoothly-navigation.js"></script>
     </body>
 </html>
