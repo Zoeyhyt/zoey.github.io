@@ -90,6 +90,7 @@ body >main .downloadResume:hover{transition: box-shadow 0.4s;box-shadow: 5px 5px
 section.skills,
 section.portfolio{max-width:940px;margin-left: auto;margin-right: auto;margin-top: 60px;}
 section.skills >h2,
+section.messages >h2,
 section.portfolio >h2{text-align: center;color: #3d4451;font-size: 34px;line-height: 1.2;font-weight: 600;}
 section.skills >ol{background: white;box-shadow: 1px -1px 26px -6px rgba(0,0,0,0.58);padding: 42px 50px 15px;margin-top: 30px;}
 section.skills >ol >li{float: left;width: 48%;box-sizing: border-box;}
@@ -117,8 +118,8 @@ section.portfolio >nav .bar.state-3 .bar-inner{margin-left: 192px;width: 86px;}
     width: 800px;
     height: 600px;
 }
-.swiper-button-prev,
-.swiper-button-next {
+section.swiper-button-prev,
+section.swiper-button-next {
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -126,8 +127,26 @@ section.portfolio >nav .bar.state-3 .bar-inner{margin-left: 192px;width: 86px;}
     left:auto;
     top:58%;
 }
-.swiper-button-next {
+section.swiper-button-next {
     left: 100%;
     right: auto;
+}
+section.messages >ol {
+    max-width: 700px;
+    margin: 30px auto 10px auto;
+    background: white;
+    border-left:1px solid #dedede;
+    border-right:1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    border-radius: 2px;
+}
+section.messages >ol >li{
+    border-top: 1px solid #dedede;
+    padding: 16px;
+}
+section.messages >ol >li:hover{
+    background :rgb(240, 250, 255);
+    color:rgb(17,96,255);
+    cursor: pointer;
 }
 

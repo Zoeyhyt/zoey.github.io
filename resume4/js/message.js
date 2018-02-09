@@ -10,14 +10,20 @@ let myForm = document.querySelector('#postMessagesForm')
 myForm.addEventListener('submit',function(e){
     e.preventDefault();
     let content = document.querySelector('input[name=content]').value;   
+    let name = document.querySelector('input[name=name]').value
     //创建/存入数据库
     var Messages = AV.Object.extend('Messages');
     //存入数据
     var messages = new Messages();
     messages.save({
-        content: content
+        name : name,
+        content : content
         }).then(function(object) {
-            window.location.reload()
+        let li = document.createElement('li')
+        li.innerText = `${object.attributes.name}:${object.attributes.content}`
+        let messageList = document.querySelector('#messageList')
+        messageList.appendChild(li)
+        myForm.querySelector('input[name=content]').value = ''
     })
 })
 
@@ -26,11 +32,10 @@ query.find().then(function (messages) {
     let array = messages.map((item) =>{ return item.attributes})
     array.forEach(element => {
         let li = document.createElement('li')
-        li.innerText = element.content
+        li.innerText = `${element.name}:${element.content}`
         let messageList = document.querySelector('#messageList')
         messageList.appendChild(li)
     });
-    
 }).then(function(messagess) {
     alert('提交成功')
 }, function (error) {
