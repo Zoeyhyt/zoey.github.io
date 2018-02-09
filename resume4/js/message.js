@@ -9,8 +9,7 @@ AV.init({
 let myForm = document.querySelector('#postMessagesForm')
 myForm.addEventListener('submit',function(e){
     e.preventDefault();
-    let content = document.querySelector('input[name=content]').value;
-    
+    let content = document.querySelector('input[name=content]').value;   
     //创建/存入数据库
     var Messages = AV.Object.extend('Messages');
     //存入数据
@@ -18,6 +17,22 @@ myForm.addEventListener('submit',function(e){
     messages.save({
         content: content
         }).then(function(object) {
-        alert(success)
+            window.location.reload()
     })
 })
+
+var query = new AV.Query('Messages');
+query.find().then(function (messages) {
+    let array = messages.map((item) =>{ return item.attributes})
+    array.forEach(element => {
+        let li = document.createElement('li')
+        li.innerText = element.content
+        let messageList = document.querySelector('#messageList')
+        messageList.appendChild(li)
+    });
+    
+}).then(function(messagess) {
+    alert('提交成功')
+}, function (error) {
+    alert('提交失败')
+});
