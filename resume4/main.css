@@ -144,9 +144,4 @@ section.messages >ol >li{
     border-top: 1px solid #dedede;
     padding: 16px;
 }
-section.messages >ol >li:hover{
-    background :rgb(240, 250, 255);
-    color:rgb(17,96,255);
-    cursor: pointer;
-}
 
